@@ -1,0 +1,58 @@
+{
+  "name": "drupal-composer/drupal-project",
+  "description": "Project template for Drupal 8 projects with composer",
+  "type": "project",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "",
+      "role": ""
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "burst/headless_ninja": "dev-8.x-1.x"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "scripts": {
+    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+    "post-install-cmd": "@drupal-scaffold",
+    "post-update-cmd": "@drupal-scaffold",
+    "drupal": "./vendor/bin/drupal",
+    "drush": "./vendor/bin/drush",
+    "start-server": "@composer drupal server",
+    "phpcs-install": "./vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer",
+    "phpcs-check": "./vendor/bin/phpcs --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md web/modules/contrib/hn/tests web/profiles/contrib/headless_ninja",
+    "phpcs-fix": "./vendor/bin/phpcbf --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md web/modules/contrib/hn web/profiles/contrib/headless_ninja",
+    "phpcs": "composer phpcs-install && composer phpcs-fix && composer phpcs-check"
+  },
+  "extra": {
+    "installer-paths": {
+      "web/core": ["type:drupal-core"],
+      "web/libraries/{$name}": ["type:drupal-library"],
+      "web/modules/contrib/{$name}": ["type:drupal-module"],
+      "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+      "web/themes/contrib/{$name}": ["type:drupal-theme"],
+      "drush/contrib/{$name}": ["type:drupal-drush"]
+    },
+    "enable-patching": true
+  },
+  "require-dev": {
+    "drupal/devel": "^1.0@RC",
+    "drupal/coder": "^8.2",
+    "behat/mink": "~1.7",
+    "behat/mink-goutte-driver": "~1.2",
+    "jcalderonzumba/gastonjs": "~1.0.2",
+    "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
+    "mikey179/vfsstream": "~1.2",
+    "phpunit/phpunit": ">=4.8.28 <5",
+    "symfony/css-selector": "~2.8",
+    "drupal/features": "^3.5"
+  }
+}
