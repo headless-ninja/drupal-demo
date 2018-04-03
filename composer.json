@@ -12,7 +12,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "burst/headless_ninja": "dev-8.x-1.x"
+    "headless-ninja/drupal-distribution": "dev-8.x-1.x"
   },
   "repositories": [
     {
