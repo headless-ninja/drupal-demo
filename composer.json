@@ -1,5 +1,5 @@
 {
-  "name": "drupal-composer/drupal-project",
+  "name": "headless-ninja/drupal-template",
   "description": "Project template for Drupal 8 projects with composer",
   "type": "project",
   "license": "GPL-2.0+",
@@ -28,8 +28,8 @@
     "drush": "./vendor/bin/drush",
     "start-server": "@composer drupal server",
     "phpcs-install": "./vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer",
-    "phpcs-check": "./vendor/bin/phpcs --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md web/modules/contrib/hn/tests web/profiles/contrib/headless_ninja",
-    "phpcs-fix": "./vendor/bin/phpcbf --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md web/modules/contrib/hn web/profiles/contrib/headless_ninja",
+    "phpcs-check": "./vendor/bin/phpcs --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md web/modules/custom web/profiles/custom web/themes/custom",
+    "phpcs-fix": "./vendor/bin/phpcbf --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md web/modules/contrib/hn web/profiles/contrib/drupal-distribution",
     "phpcs": "composer phpcs-install && composer phpcs-fix && composer phpcs-check"
   },
   "extra": {
